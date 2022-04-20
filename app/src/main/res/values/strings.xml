@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Remembered Task App</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="labelTitle">Task title</string>
+    <string name="labelDesc">Task description</string>
+    <string name="labelBtDatePrev" >Expected date</string>
+    <string name="selectDate">Select the date</string>
+    <string name="selectSave">Save</string>
+    <string name="labelDataPrev">Date for completion</string>
+</resources>

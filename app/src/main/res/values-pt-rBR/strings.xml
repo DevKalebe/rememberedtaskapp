@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Remembered Task App</string>
+    <string name="hello_blank_fragment">Olá fragmento em branco</string>
+    <string name="labelTitle">Título da tarefa</string>
+    <string name="labelDesc">Descrição da tarefa</string>
+    <string name="selectDate">Selecione a data</string>
+    <string name="selectSave">Salvar</string>
+    <string name="labelDataPrev">Data para realização</string>
+    <string name="labelBtDatePrev">Data esperada</string>
+</resources>
