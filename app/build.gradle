@@ -48,7 +48,8 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
     // implementando o Room Database
     def room_version = "2.4.2"
-
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
+    // implementando o navigation UI do androidx
+    implementation 'androidx.navigation:navigation-ui:2.4.2'
 }

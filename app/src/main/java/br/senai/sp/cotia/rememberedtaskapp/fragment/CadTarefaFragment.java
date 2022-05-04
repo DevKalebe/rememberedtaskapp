@@ -151,6 +151,7 @@ public class CadTarefaFragment extends Fragment {
 
         @Override
         protected void onPostExecute(String r) {
+            // lógica para verificar se houve sucesso na inserção da tarefa
             if(r.equals("ok")){
                Toast.makeText(getContext(), "Tarefa Salvada com sucesso", Toast.LENGTH_LONG).show();
                // voltar ao fragment anterior

@@ -17,5 +17,7 @@ public class Task {
     private long dataPrev;
     private long dataFinish;
 
-
+    public boolean isConcluida(){
+        return dataFinish != 0;
+    }
 }

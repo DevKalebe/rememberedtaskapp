@@ -8,4 +8,5 @@
     <string name="selectSave">Salvar</string>
     <string name="labelDataPrev">Data para realização</string>
     <string name="labelBtDatePrev">Data esperada</string>
+    <string name="titleRegTask">Adicione uma tarefa</string>
 </resources>

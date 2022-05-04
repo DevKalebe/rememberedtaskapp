@@ -8,4 +8,5 @@
     <string name="selectDate">Select the date</string>
     <string name="selectSave">Save</string>
     <string name="labelDataPrev">Date for completion</string>
+    <string name="titleRegTask">Add a task</string>
 </resources>
