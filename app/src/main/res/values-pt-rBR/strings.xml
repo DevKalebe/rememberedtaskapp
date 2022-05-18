@@ -9,4 +9,7 @@
     <string name="labelDataPrev">Data para realização</string>
     <string name="labelBtDatePrev">Data esperada</string>
     <string name="titleRegTask">Adicione uma tarefa</string>
+    <string name="galery">Galeria</string>
+    <string name="camera">Camera</string>
+    <string name="origin_image">Qual a origem da imagem?</string>
 </resources>

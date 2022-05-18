@@ -6,11 +6,13 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.io.Serializable;
 import java.util.List;
 
 import br.senai.sp.cotia.rememberedtaskapp.R;
@@ -42,23 +44,55 @@ public class PrincipalFragment extends Fragment {
         });
 
 
+        // instancia a database
+        database = AppDatabase.getDatabase(getContext());
+
+        // define o layout manager do recycler
+        binding.recyclerTasks.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        // executar a asynctask
+        new ReadTask().execute();
+
         // retorna a view raiz (root) do binding
         return binding.getRoot();
 
 
     }
 
-    class ReadTask extends AsyncTask<Void, Void, List<Task>>{
+    class ReadTask extends AsyncTask<Void, Void, List<Task>> {
         @Override
         protected List<Task> doInBackground(Void... voids) {
-            return null;
+            // buscar as tarefas e guardar na variável tasks
+            tasks = database.getTaskDao().getAll();
+            return tasks;
         }
 
         @Override
         protected void onPostExecute(List<Task> tasks) {
+
+            // instancia o adapter
+            adapter = new TaskAdapter(tasks, getContext(), listenerClick);
+            // aplica o adapter no recycler
+            binding.recyclerTasks.setAdapter(adapter);
+
             super.onPostExecute(tasks);
+
         }
     }
+
+    // Listener para o click nas tarefas
+    private TaskAdapter.OnTaskClickListener listenerClick = (view, task) -> {
+
+        // variável para "pendurar" a tarefa
+        Bundle bundle = new Bundle();
+        // "pendura" a tarefa no bundle
+        bundle.putSerializable("task",  task);
+        // navega para o fragment de detalhes enviando a tarefa no bundle
+        NavHostFragment.findNavController
+                (PrincipalFragment.this).navigate
+                (R.id.action_principalFragment_to_detalheTarefaFragment, bundle);
+
+    };
 
     // tirando a ActionBar desse fragment
 

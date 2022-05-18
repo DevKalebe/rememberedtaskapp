@@ -4,11 +4,13 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 import lombok.Data;
 
 @Data
 @Entity
-public class Task {
+public class Task implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private Long idTask;
     private String title;

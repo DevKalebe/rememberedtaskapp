@@ -1,6 +1,7 @@
 package br.senai.sp.cotia.rememberedtaskapp.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,11 +21,14 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
     private List<Task> tasks;
     // variável para o Context
     private Context context;
+    // variável para o listener
+    private OnTaskClickListener listenertask;
 
     // construtor que recebe os parâmetros para o Adapter
-    public TaskAdapter(List<Task> list, Context context){
+    public TaskAdapter(List<Task> list, Context context, OnTaskClickListener listenertask){
         this.tasks = list;
         this.context  = context;
+        this.listenertask = listenertask;
     }
 
     @NonNull
@@ -56,6 +60,13 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
             holder.tvStatus.setBackgroundColor(context.getResources().getColor(R.color.black));
         }
         // fazer a atrasada
+
+        //CODING...
+
+        // implementa o click na tarefa
+        holder.itemView.setOnClickListener(v -> {
+           listenertask.onClick(v, t);
+        });
     }
 
     @Override
@@ -78,6 +89,11 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
             tvDate = view.findViewById(R.id.tv_date);
             tvStatus = view.findViewById(R.id.tv_status);
         }
+    }
+
+    // interface para o click na tarefa
+    public interface OnTaskClickListener {
+        void onClick(View v, Task t);
     }
 
 }

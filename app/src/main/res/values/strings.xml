@@ -9,4 +9,7 @@
     <string name="selectSave">Save</string>
     <string name="labelDataPrev">Date for completion</string>
     <string name="titleRegTask">Add a task</string>
+    <string name="galery">Galery</string>
+    <string name="camera">Camera</string>
+    <string name="origin_image">origem da image ?</string>
 </resources>
